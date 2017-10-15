@@ -65,7 +65,7 @@ export default function init (options = {}) {
 
     // register OAuth middleware
     debug(`Registering '${name}' Express OAuth middleware`);
-    app.get(oauth1Settings.path, auth.express.authenticate(name));
+    app.get(oauth1Settings.path, auth.express.authenticate(name, oauth1Settings));
     app.get(
       oauth1Settings.callbackPath,
       // NOTE (EK): We register failure redirect here so that we can
